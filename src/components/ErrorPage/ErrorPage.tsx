@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingState from "../LoadingFrame/Loading.tsx";
 import NotFoundPage from "./NotFoundPage.tsx";
-const Error_page = () => {
+const ErrorPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     const loadingState = () => {
@@ -15,4 +15,4 @@ const Error_page = () => {
   return <div>{isLoaded ? <LoadingState></LoadingState> : <NotFoundPage></NotFoundPage>}</div>;
 };
 
-export default Error_page;
+export default ErrorPage;

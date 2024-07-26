@@ -1,4 +1,4 @@
-import { Paper, Container, TextField, Button, Icon } from "@mui/material";
+import { Paper, Container, TextField, Button } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { IUserInfo, ResponseBody } from "../../../interface/IUserInfo.ts";
 import { useForm } from "react-hook-form";
@@ -10,7 +10,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import schema from "../../../validation/SignInVal.ts";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import LoadingState from "../../LoadingFrame/Loading.tsx";
 import SuccessMessage from "../../LoadingFrame/SuccessMessage.ts";
 import failMessage from "../../LoadingFrame/FailMessage.ts";
@@ -51,7 +50,7 @@ const Login = () => {
           navigate("/");
         }
       } else {
-        failMessage((await response.json()).error);
+        failMessage("Mật khẩu hoặc tài khoản chưa đúng!");
       }
     } catch (error) {
       console.error(error);

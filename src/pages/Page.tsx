@@ -4,8 +4,8 @@ import Login from "../components/Login/login/Login.tsx";
 import Signup from "../components/Login/login/Signup.tsx";
 import ForgetPassword from "../components/Login/login/ForgetPassword.tsx";
 import Homepage from "../components/Homepage/Homepage.tsx";
-import Product_detail from "../components/Product_detail/Product_detail.tsx";
-import Error_page from "../components/ErrorPage/Error_page.tsx";
+import ProductDetail from "../components/ProductDetail/ProductDetail.tsx";
+import ErrorPage from "../components/ErrorPage/ErrorPage.tsx";
 import Admin from "../components/Admin/Admin.tsx";
 import AdminPageDetail from "../components/Admin/AdminPageDetail.tsx";
 import AdminAddUser from "../components/Admin/AdminAddUser.tsx";
@@ -34,7 +34,6 @@ const Page = () => {
     const access_token = localStorage.getItem("access_token");
     setAccessToken(access_token)
     setRole(userRole);
-    console.log(role);
   }, []);
 
   return (
@@ -44,7 +43,7 @@ const Page = () => {
         <Route path="/sign_up" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgetPassword />} />
         <Route path="/" element={<Homepage />} />
-        <Route path="/category/:id" element={<Product_detail />} />
+        <Route path="/category/:id" element={<ProductDetail />} />
         <Route path="/:id" element={<CategoryTotal />} />
         <Route path="/add-to-cart" element={<AddToCart></AddToCart>} />
         {accessToken && <Route path="/add-to-cart/payment" element={<Payment></Payment>}></Route>}
@@ -105,7 +104,7 @@ const Page = () => {
             <Route path="/admin/orders/:id/modify" element={<AdminBillsModify></AdminBillsModify>}></Route>
           </>
         )}
-      <Route path="*" element={<Error_page />} />
+      <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

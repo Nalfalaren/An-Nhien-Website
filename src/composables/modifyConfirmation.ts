@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import { Order } from "../interface/IUserInfo.ts";
 import { InputForm } from "../validation/PaymentForm";
 const modifyConfirmation = async (access_token: string | null, params: InputForm, callback, userId: number) => {  
   try {

@@ -7,7 +7,7 @@ import CategoryDetail from "./CategoryDetail.tsx";
 import Footer from "../../Homepage/Footer/Footer.tsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Error_page from "../../ErrorPage/Error_page.tsx";
+import ErrorPage from "../../ErrorPage/ErrorPage.tsx";
 const CategoryTotal = () => {
   const { id } = useParams();
   const [productExists, setProductExists] = useState(false);
@@ -36,7 +36,7 @@ const CategoryTotal = () => {
           <Footer></Footer>
         </>
       ) : (
-        <Error_page></Error_page>
+        <ErrorPage></ErrorPage>
       )}
     </div>
   );

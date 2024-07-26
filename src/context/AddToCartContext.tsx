@@ -1,13 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import SuccessMessage from "../components/LoadingFrame/SuccessMessage.ts";
 import failMessage from "../components/LoadingFrame/FailMessage.ts";
-import confirmMessage from "../components/LoadingFrame/ConfirmMessage.ts";
 import Swal from "sweetalert2";
 import getAddToCart from "../composables/getAddToCart.ts";
 import useAccessToken from "../composables/getAccessToken.ts";
-import deleteProduct from "../composables/deleteProduct.ts";
 import getOrderById from "../composables/getOrderById.ts";
-import { Order } from "../interface/IUSerInfo.ts";
 import getOrderProductDetail from "../composables/getOrderProductDetail.ts";
 
 interface AddToCartElement {

@@ -1,5 +1,3 @@
-import { ICategories } from "./ICategory";
-
 export interface Product {
     id: number,
     name: string,

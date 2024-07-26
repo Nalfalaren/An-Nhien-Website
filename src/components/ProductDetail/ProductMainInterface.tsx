@@ -2,17 +2,13 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
 import { Button } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/AddToCartContext.tsx";
-import useAccessToken from "../../composables/getAccessToken.ts";
 import SignInDialog from "../AddToCart/SignInDialog.tsx";
-import SuccessMessage from "../LoadingFrame/SuccessMessage.ts";
 import LoadingState from "../LoadingFrame/Loading.tsx";
-import failMessage from "../LoadingFrame/FailMessage.ts";
 import Overlay from "../Login/login/Overlay.tsx";
 import CloseIcon from '@mui/icons-material/Close';
-const Product_main_interface = () => {
+const ProductMainInterface = () => {
   const productInfo = useContext(CartContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showSignInDialog, setShowSignInDialog] = useState<boolean>(false);
@@ -130,4 +126,4 @@ const Product_main_interface = () => {
   );
 };
 
-export default Product_main_interface;
+export default ProductMainInterface;

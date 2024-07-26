@@ -129,7 +129,7 @@ useEffect(() => {
         </span>
         <div className="md:hidden block relative" onClick={handleAddToCart}>
           <ShoppingCartIcon></ShoppingCartIcon>
-          <div className="absolute -top-1 -right-1 bg-[#DF6A6A] w-[17px] h-[17px] rounded-full"><span className="absolute top-1/2 left-1/2 -transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-sm">{addToCartList.AddToCartProductList.length}</span></div>
+          <div className="absolute -top-1 -right-1 bg-[#DF6A6A] w-[17px] h-[17px] rounded-full"><span className="absolute top-1/2 left-1/2 -transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-sm">{addToCartList.addToCartProductList.length}</span></div>
         </div>
       </div>
       <div className="flex flex-col items-center basis-[60%] relative">

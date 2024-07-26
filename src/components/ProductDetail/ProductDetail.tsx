@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Product_main_interface from "./Product_main_interface.tsx";
-import Product_additional_detail from "./Product_additional_detail.tsx";
+import ProductMainInterface from "./ProductMainInterface.tsx";
+import ProductAdditionalDetail from "./ProductAdditionalDetail.tsx";
 import Footer from "../Homepage/Footer/Footer.tsx";
 import SpecialPicture from "../Homepage/Items/SpecialPicture.tsx";
 import NavCover from "../Homepage/Navbar/NavCover.tsx";
 import NavMain from "../Homepage/Navbar/NavMain.tsx";
 import ToolBar from "../Homepage/Navbar/Toolbar.tsx";
 import { useParams } from "react-router-dom";
-import Error_page from "../ErrorPage/Error_page.tsx";
-const Product_detail = () => {
+import ErrorPage from "../ErrorPage/ErrorPage.tsx";
+const ProductDetail = () => {
   const { id } = useParams();
   const [productExists, setProductExists] = useState(false);
 
@@ -31,8 +31,8 @@ const Product_detail = () => {
           <ToolBar />
           <NavMain />
           <div className="max-w-[1100px] mx-auto my-8">
-            <Product_main_interface />
-            <Product_additional_detail />
+            <ProductMainInterface />
+            <ProductAdditionalDetail />
             <div className="mb-20">
               <SpecialPicture />
             </div>
@@ -40,10 +40,10 @@ const Product_detail = () => {
           <Footer />
         </>
       ) : (
-        <Error_page />
+        <ErrorPage />
       )}
     </div>
   );
 };
 
-export default Product_detail;
+export default ProductDetail;

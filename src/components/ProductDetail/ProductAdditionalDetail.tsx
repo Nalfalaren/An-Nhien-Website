@@ -8,7 +8,7 @@ interface ResponseBody {
   id: number;
   material: string;
 }
-const Product_additional_detail = () => {
+const ProductAdditionalDetail = () => {
   const [productInfo, setProductInfo] = useState<ResponseBody>({
     description: "",
     height: 0,
@@ -68,4 +68,4 @@ const Product_additional_detail = () => {
   );
 };
 
-export default Product_additional_detail;
+export default ProductAdditionalDetail;

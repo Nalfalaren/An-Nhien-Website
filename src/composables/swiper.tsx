@@ -2,13 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CoverImg from '../assets/cover_img.png';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import failMessage from '../components/LoadingFrame/FailMessage.ts';
 interface ResponseBody{
   id: number,
   thumbnail: string,
@@ -33,7 +33,7 @@ const handleNav = (id: number) => {
           setProductImage(landscapeImages);
           landscapeImages.forEach(product => fetchImage(product.thumbnail));
         } else {
-          const errorData = await response.json();
+          failMessage("Đã có vấn đề xảy ra!")
         }
       } catch (error) {
         console.log(error);
