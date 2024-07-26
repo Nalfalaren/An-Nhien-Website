@@ -39,7 +39,7 @@ interface SuccessState {
 
 const CartContext = createContext<{
   productInfo: ResponseBody;
-  AddToCartProductList: AddToCartElement[];
+  addToCartProductList: AddToCartElement[];
   isDeleted: boolean;
   totalPrice: number;
   isSuccess: boolean;
@@ -69,7 +69,7 @@ const CartContext = createContext<{
     thumbnail: "",
     publishYear: "",
   },
-  AddToCartProductList: [],
+  addToCartProductList: [],
   isDeleted: false,
   totalPrice: 0,
   isSuccess: false,
@@ -86,6 +86,7 @@ const CartContext = createContext<{
 });
 
 const AddToCartContext = ({ children }: { children: React.ReactNode }) => {
+
   const [productInfo, setProductInfo] = useState<ResponseBody>({
     categoryName: "",
     description: "",
@@ -99,7 +100,8 @@ const AddToCartContext = ({ children }: { children: React.ReactNode }) => {
     thumbnail: "",
     publishYear: "",
   });
-  const [AddToCartProductList, setAddToCartProductList] = useState<
+
+  const [addToCartProductList, setAddToCartProductList] = useState<
     AddToCartElement[]
   >([]);
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
@@ -144,7 +146,7 @@ const AddToCartContext = ({ children }: { children: React.ReactNode }) => {
       addToCartProducts.forEach(async (addToCartProduct) => {
         if (addToCartProduct) {
           if (
-            !AddToCartProductList.some(
+            !addToCartProductList.some(
               (item) => item.product_id === addToCartProduct.product_id
             )
           ) {
@@ -264,7 +266,7 @@ const AddToCartContext = ({ children }: { children: React.ReactNode }) => {
 
   const handleTotalPrice = () => {
     let totalPrice = 0;
-    AddToCartProductList.forEach((product) => {
+    addToCartProductList.forEach((product) => {
       totalPrice += product.product_price;
     });
     setTotalPrice(totalPrice);
@@ -282,7 +284,7 @@ const AddToCartContext = ({ children }: { children: React.ReactNode }) => {
     <CartContext.Provider
       value={{
         productInfo,
-        AddToCartProductList,
+        addToCartProductList,
         totalPrice,
         handleAddToCart,
         fetchProductDetails,

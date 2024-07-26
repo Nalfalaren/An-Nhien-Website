@@ -1,3 +1,4 @@
+import failMessage from "../components/LoadingFrame/FailMessage.ts";
 
 const getOrderById = async (userId: string | null, accessToken: string | null) => {
     const response = await fetch(`http://localhost:8686/orders/user/${userId}`, {
@@ -9,8 +10,7 @@ const getOrderById = async (userId: string | null, accessToken: string | null) =
     });
   
     if (!response.ok) {
-     console.log(1);
-     
+      failMessage("Có vấn đề đã xảy ra!")
     }
   
     const data = await response.json();

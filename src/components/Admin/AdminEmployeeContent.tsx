@@ -51,7 +51,7 @@ const AdminEmployeeContent = () => {
           <div
             onClick={(event) => {
               event.stopPropagation();
-              const userConfirmed = window.confirm("Bạn có muốn xóa bảng này?");
+              const userConfirmed = window.confirm("Bạn có muốn xóa nhân viên  này?");
               if (userConfirmed) {
                   handleDeleteClick(params);
               }

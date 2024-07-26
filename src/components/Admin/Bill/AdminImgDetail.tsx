@@ -27,7 +27,6 @@ const AdminImgDetail = () => {
   const [thumbnailFetched, setThumbnailFetched] = useState<boolean[]>([]);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const handleNav = useContext(ClickAdmin);
   const { accessToken, loading } = useAccessToken();
 
   const handleNavigation = () => {

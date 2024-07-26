@@ -72,7 +72,7 @@ const AdminProductList = () => {
               onClick={(event) => {
                 event.stopPropagation();
                 const userConfirmed = window.confirm(
-                  "Bạn có muốn xóa bảng này?"
+                  "Bạn có muốn xóa sản phẩm này?"
                 );
                 if (userConfirmed) {
                   handleDeleteClick(params);

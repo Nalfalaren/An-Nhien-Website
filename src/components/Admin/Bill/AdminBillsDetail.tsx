@@ -37,6 +37,7 @@ const AdminBillsDetail = () => {
   const navigate = useNavigate();
   const handleNav = useContext(ClickAdmin);
   const { accessToken, loading } = useAccessToken();
+
   const handleValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setEid(e.target.value);
   };
@@ -53,6 +54,7 @@ const AdminBillsDetail = () => {
   const handleMoreImg = (id: string) => {
     navigate(`/admin/order/${id}/img`)
   }
+  
   useEffect(() => {
     const fetchEmployee = async (accessToken: string) => {
       if (loading) return; 

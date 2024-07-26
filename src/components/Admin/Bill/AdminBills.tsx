@@ -9,6 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import useAccessToken from "../../../composables/getAccessToken.ts";
 import useRole from "../../../composables/getRole.ts";
 import getOrderByEmployee from "../../../composables/getOrderByEmployee.ts";
+import fetchBillDetail from "../../../composables/getBill.ts";
 const AdminBills = () => {
   const statusMapping: { [key: string]: string } = {
     INIT: "KHỞI TẠO",
@@ -20,7 +21,6 @@ const AdminBills = () => {
   };
   
   const [orderInfo, setOrderInfo] = useState<Order[]>([]);
-  const [emptyMessage, setEmptyMessage] = useState("");
   const [employeeOrderList, setEmployeeOrderList] = useState<Order[]>([]);
   const [paginationModel, setPaginationModel] = useState({
     pageSize: 10,
@@ -45,11 +45,9 @@ const AdminBills = () => {
       field: "orderDetailList",
       headerName: "ID Sản phẩm",
       width: 400,
-      renderCell: (params) => {
-        console.log(params);
-        
+      renderCell: (params) => {        
         const orderDetailList = params.value;
-        const productIds = orderDetailList.map((order) => order.id).join(", ");
+        const productIds = orderDetailList.map((order) => order.id).join(",");
         return productIds;
       },
     },
@@ -88,27 +86,11 @@ const AdminBills = () => {
     },
   ];
   const navigate = useNavigate();
-  const { accessToken, loading } = useAccessToken();
+  const accessToken = localStorage.getItem('access_token');
   useEffect(() => {
     const fetchCustomerList = async () => {
-      try {
-        const response = await fetch("http://localhost:8686/orders/admin", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        if (response.ok) {
-          const data: Order[] = await response.json();
-          setOrderInfo(data);
-        } else {
-          const errorData = await response.json();
-          setEmptyMessage(errorData.error);
-        }
-      } catch (error) {
-        console.log("Failed");
-      }
+      const getBill = await fetchBillDetail(accessToken);
+      setOrderInfo(getBill);
     };
     const getOrderById = async () => {
       const employeeId = localStorage.getItem("user_id");
@@ -133,7 +115,6 @@ const AdminBills = () => {
   };
 
   const filteredStatus = async (status: string) => {
-    if(loading) return;
     const response = await fetch(
       `http://localhost:8686/orders/admin/${status}`,
       {
